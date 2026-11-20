@@ -94,14 +94,14 @@ function HeroArt() {
           style={{ animationDelay: `${0.9 + i! * 0.12}s` }}
         />
       ))}
-      <circle cx="40" cy="98" r="7" fill="#1f9e89" stroke="#fff" strokeWidth="3" />
+      <circle cx="40" cy="98" r="7" fill="#c45c12" stroke="#fff" strokeWidth="3" />
       <rect
         x="355"
         y="23"
         width="14"
         height="14"
-        rx="3"
-        fill="#0b3c49"
+        rx="2"
+        fill="#1c2430"
         stroke="#fff"
         strokeWidth="3"
       />
@@ -148,12 +148,12 @@ function LoadingState() {
     <div className="section" aria-busy="true">
       <div className="card loading-card rise">
         <svg className="loading-road" viewBox="0 0 360 54" aria-hidden="true">
-          <rect x="0" y="30" width="360" height="18" rx="9" fill="#e9eeec" />
+          <rect x="0" y="30" width="360" height="18" rx="4" fill="#ebe4d8" />
           <line className="lane" x1="0" y1="39" x2="360" y2="39" stroke="#fff" strokeWidth="2.5" />
           <g className="truck" transform="translate(150 6)">
-            <rect x="0" y="6" width="40" height="22" rx="4" fill="#0b3c49" />
-            <path d="M40 12h10l8 8v8H40z" fill="#13697c" />
-            <rect x="44" y="14" width="7" height="5" rx="1" fill="#cfe9e3" />
+            <rect x="0" y="6" width="40" height="22" rx="2" fill="#1c2430" />
+            <path d="M40 12h10l8 8v8H40z" fill="#c45c12" />
+            <rect x="44" y="14" width="7" height="5" rx="1" fill="#f6e2d2" />
             <circle cx="10" cy="29" r="4.5" fill="#1f2b30" />
             <circle cx="48" cy="29" r="4.5" fill="#1f2b30" />
           </g>

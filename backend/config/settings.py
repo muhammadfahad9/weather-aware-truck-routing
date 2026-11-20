@@ -32,6 +32,11 @@ ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1],test
 ALLOWED_HOSTS += [h for h in ("localhost", "127.0.0.1") if h not in ALLOWED_HOSTS]
 if render_host := os.environ.get("RENDER_EXTERNAL_HOSTNAME"):
     ALLOWED_HOSTS.append(render_host)
+# Vercel sets VERCEL=1 and VERCEL_URL to the deployment host (no scheme).
+if os.environ.get("VERCEL"):
+    ALLOWED_HOSTS.append(".vercel.app")
+    if vercel_url := os.environ.get("VERCEL_URL"):
+        ALLOWED_HOSTS.append(vercel_url)
 CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS")
 
 INSTALLED_APPS = [

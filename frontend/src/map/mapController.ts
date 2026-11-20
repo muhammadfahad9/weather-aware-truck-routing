@@ -40,8 +40,8 @@ const LYR = {
   cpFocus: 'cp-focus',
   cpHover: 'cp-hover',
 };
-const ACCENT = '#1f9e89';
-const BRAND = '#0b3c49';
+const ACCENT = '#c45c12';
+const BRAND = '#1c2430';
 const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] };
 const NONE = ['==', ['get', 'routeId'], '__none__'] as maplibregl.FilterSpecification;
 
@@ -305,7 +305,7 @@ export class MapController {
       source: SRC.hover,
       paint: {
         'circle-radius': 11,
-        'circle-color': 'rgba(31,158,137,0.18)',
+        'circle-color': 'rgba(196,92,18,0.18)',
         'circle-stroke-color': ACCENT,
         'circle-stroke-width': 2.5,
       },

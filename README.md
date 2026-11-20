@@ -3,9 +3,6 @@
 A React + Django app that helps a truck driver pick the safest route by **weather at the
 time the truck will actually be there**, **load weight** and **travel time**.
 
-> **Live demo:** https://weather-aware-truck-routing-rho-three.vercel.app ·
-> **Walkthrough video:** _add the Loom link_
-
 ![Simulated storm on the fastest route; the recommendation avoids it](docs/screenshots/storm-recommendation.png)
 
 | Live forecast (Denver → Salt Lake City) | Wind layer at T+13h | Phone |
@@ -127,22 +124,21 @@ smoke-tests it.
 
 ## Deploy
 
-**Live (Vercel):** the React build is served as static files and the Django API runs as a
-Python function. The backend is stateless (no database), so serverless fits.
+The UI and the API are one product. The browser calls `/api/plan`, `/api/heatmap`,
+`/api/geocode`, `/api/rules` and `/api/health` on the same origin. Those endpoints are unchanged.
 
-- `vercel.json`: builds `frontend/`, routes `/api/*` to the function, sets a 60 s limit
-- `api/index.py`: exposes Django's WSGI app to Vercel
-- `requirements.txt` (root): the function's Python dependencies
+**Vercel serves the React build and the Django API.** The API is stateless (no database),
+so one serverless function fits. `vercel.json` builds `frontend/`, publishes `frontend/dist`,
+and sends `/api/*` to `api/index.py` (60 s limit). Root `requirements.txt` is that function's
+Python dependencies. On Vercel, set `DJANGO_SECRET_KEY`. Hosts under `.vercel.app` are allowed
+automatically.
 
 ```bash
 vercel link && vercel deploy --prod
 ```
 
-Set `DJANGO_SECRET_KEY` and `DJANGO_ALLOWED_HOSTS=.vercel.app` in the project's environment
-variables.
-
-**Docker (any container host):** one image serves the API and the built app.
-`render.yaml` deploys it on Render as a Blueprint, or run it anywhere:
+**Docker serves the same UI and API in one container.** `render.yaml` is an optional Render
+blueprint for that image.
 
 ```bash
 docker build -t truck-routing . && docker run -p 8000:8000 -e DJANGO_SECRET_KEY=change-me truck-routing
@@ -151,7 +147,7 @@ docker build -t truck-routing . && docker run -p 8000:8000 -e DJANGO_SECRET_KEY=
 | Variable | Default | Purpose |
 |---|---|---|
 | `DJANGO_SECRET_KEY` | required | Django secret |
-| `DJANGO_ALLOWED_HOSTS` | localhost | add your domain (Render's hostname is added automatically) |
+| `DJANGO_ALLOWED_HOSTS` | localhost | add the host that serves this app |
 | `DJANGO_FRAME_ANCESTORS` | – | sites allowed to embed the app in an iframe |
 | `OPEN_METEO_API_KEY` | – | optional commercial key (higher limits) |
 | `TRUCK_TARE_LB` / `TRUCK_MAX_SPEED_MPH` | 35000 / 65 | truck assumptions |
@@ -171,7 +167,7 @@ frontend/
   src/components/      form, recommendation, route cards, checkpoint table, timeline
   e2e/                 Playwright specs
 shared/                golden test vectors used by both test suites
-docs/                  architecture notes, walkthrough script, screenshots
+docs/                  architecture notes and screenshots
 ```
 
 ## Limitations
