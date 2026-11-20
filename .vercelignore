@@ -1,0 +1,17 @@
+**/node_modules
+**/.venv
+**/__pycache__
+**/.mypy_cache
+**/.ruff_cache
+**/.pytest_cache
+frontend/dist
+frontend/coverage
+frontend/test-results
+frontend/playwright-report
+docs/screenshots
+docs/WALKTHROUGH.md
+*.pdf
+.github
+.env
+.env.*
+.vercel

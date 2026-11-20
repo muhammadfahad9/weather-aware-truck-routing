@@ -88,8 +88,17 @@ export function CheckpointTable({
                   <td>{Math.round(c.mile)}</td>
                   <td>{formatTime(c.eta)}</td>
                   <td>
-                    {w.wind_mph.toFixed(1)}
-                    <span className="muted"> ({w.gust_mph.toFixed(1)})</span>
+                    {windBasis === 'gust' ? (
+                      <>
+                        <span className="muted">{w.wind_mph.toFixed(0)} </span>(
+                        {w.gust_mph.toFixed(1)})
+                      </>
+                    ) : (
+                      <>
+                        {w.wind_mph.toFixed(1)}
+                        <span className="muted"> ({w.gust_mph.toFixed(0)})</span>
+                      </>
+                    )}
                   </td>
                   <td>{w.rain_in_hr.toFixed(2)}</td>
                   <td>{w.snow_in_hr.toFixed(2)}</td>

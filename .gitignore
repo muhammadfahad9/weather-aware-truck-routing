@@ -28,3 +28,6 @@ frontend/test-results/
 # Private notes and the assessment brief (not part of the repository)
 *.pdf
 docs/WALKTHROUGH.md
+
+# Vercel CLI link
+.vercel
