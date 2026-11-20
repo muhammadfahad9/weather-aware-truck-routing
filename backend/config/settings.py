@@ -39,12 +39,17 @@ INSTALLED_APPS = [
     "planner",
 ]
 
+# Sites allowed to embed the app in an iframe (e.g. https://huggingface.co). Empty = none.
+FRAME_ANCESTORS = env_list("DJANGO_FRAME_ANCESTORS")
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.gzip.GZipMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "planner.middleware.FrameAncestorsMiddleware"
+    if FRAME_ANCESTORS
+    else "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
