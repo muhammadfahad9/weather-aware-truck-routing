@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+backend/staticfiles/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+*.tsbuildinfo
+
+# Env / OS / editors
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Private notes and the assessment brief (not part of the repository)
+*.pdf
+docs/WALKTHROUGH.md

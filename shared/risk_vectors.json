@@ -1,0 +1,55 @@
+{
+  "description": "Golden cases for the risk rules. Consumed by BOTH backend (pytest) and frontend (vitest) so the server-side checkpoint classifier and the client-side heatmap classifier can never drift apart. Levels: 0 Low, 1 Moderate, 2 High, 3 Severe, 4 No Travel.",
+  "cases": [
+    { "name": "calm", "wind": 0, "gust": 0, "rain": 0, "snow": 0, "load": 0, "level": 0, "drivers": [] },
+    { "name": "wind just under moderate", "wind": 24.9, "gust": 30, "rain": 0, "snow": 0, "load": 0, "level": 0, "drivers": [] },
+    { "name": "wind displayed as 25.0 is moderate", "wind": 24.96, "gust": 30, "rain": 0, "snow": 0, "load": 0, "level": 1, "drivers": ["wind"] },
+    { "name": "wind 25 moderate", "wind": 25, "gust": 30, "rain": 0, "snow": 0, "load": 0, "level": 1, "drivers": ["wind"] },
+    { "name": "wind 34.9 moderate", "wind": 34.9, "gust": 40, "rain": 0, "snow": 0, "load": 0, "level": 1, "drivers": ["wind"] },
+    { "name": "wind 35 high", "wind": 35, "gust": 40, "rain": 0, "snow": 0, "load": 0, "level": 2, "drivers": ["wind"] },
+    { "name": "wind 44.9 high", "wind": 44.9, "gust": 50, "rain": 0, "snow": 0, "load": 0, "level": 2, "drivers": ["wind"] },
+    { "name": "wind 45 severe", "wind": 45, "gust": 50, "rain": 0, "snow": 0, "load": 0, "level": 3, "drivers": ["wind"] },
+    { "name": "wind 54.9 severe", "wind": 54.9, "gust": 60, "rain": 0, "snow": 0, "load": 0, "level": 3, "drivers": ["wind"] },
+    { "name": "wind 55 no travel (any load)", "wind": 55, "gust": 60, "rain": 0, "snow": 0, "load": 0, "level": 4, "drivers": ["wind"] },
+    { "name": "wind 70 no travel", "wind": 70, "gust": 80, "rain": 0, "snow": 0, "load": 0, "level": 4, "drivers": ["wind"] },
+
+    { "name": "load rule: 35 mph at exactly 40,000 lb stays high", "wind": 35, "gust": 40, "rain": 0, "snow": 0, "load": 40000, "level": 2, "drivers": ["wind"] },
+    { "name": "load rule: 35 mph over 40,000 lb is severe", "wind": 35, "gust": 40, "rain": 0, "snow": 0, "load": 40001, "level": 3, "drivers": ["wind"], "load_escalated": true },
+    { "name": "load rule: 44.9 mph heavy is severe", "wind": 44.9, "gust": 50, "rain": 0, "snow": 0, "load": 45000, "level": 3, "drivers": ["wind"], "load_escalated": true },
+    { "name": "load rule: 45 mph at exactly 30,000 lb stays severe", "wind": 45, "gust": 50, "rain": 0, "snow": 0, "load": 30000, "level": 3, "drivers": ["wind"] },
+    { "name": "load rule: 45 mph over 30,000 lb is no travel", "wind": 45, "gust": 50, "rain": 0, "snow": 0, "load": 30001, "level": 4, "drivers": ["wind"], "load_escalated": true },
+    { "name": "load rule: 54.9 mph over 30,000 lb is no travel", "wind": 54.9, "gust": 60, "rain": 0, "snow": 0, "load": 30001, "level": 4, "drivers": ["wind"], "load_escalated": true },
+    { "name": "load rule: 45 mph at 35,000 lb (between limits) is no travel", "wind": 45, "gust": 50, "rain": 0, "snow": 0, "load": 35000, "level": 4, "drivers": ["wind"], "load_escalated": true },
+    { "name": "load rule: 40 mph at 35,000 lb is only high", "wind": 40, "gust": 50, "rain": 0, "snow": 0, "load": 35000, "level": 2, "drivers": ["wind"] },
+    { "name": "load rules never apply below 35 mph", "wind": 34.9, "gust": 50, "rain": 0, "snow": 0, "load": 80000, "level": 1, "drivers": ["wind"] },
+
+    { "name": "rain 0.09 low", "wind": 5, "gust": 8, "rain": 0.09, "snow": 0, "load": 0, "level": 0, "drivers": [] },
+    { "name": "rain 0.095 displays 0.10 so moderate", "wind": 5, "gust": 8, "rain": 0.095, "snow": 0, "load": 0, "level": 1, "drivers": ["rain"] },
+    { "name": "rain 0.10 moderate", "wind": 5, "gust": 8, "rain": 0.1, "snow": 0, "load": 0, "level": 1, "drivers": ["rain"] },
+    { "name": "rain 0.24 moderate", "wind": 5, "gust": 8, "rain": 0.24, "snow": 0, "load": 0, "level": 1, "drivers": ["rain"] },
+    { "name": "rain 0.25 high", "wind": 5, "gust": 8, "rain": 0.25, "snow": 0, "load": 0, "level": 2, "drivers": ["rain"] },
+    { "name": "rain 0.49 high", "wind": 5, "gust": 8, "rain": 0.49, "snow": 0, "load": 0, "level": 2, "drivers": ["rain"] },
+    { "name": "rain 0.50 severe", "wind": 5, "gust": 8, "rain": 0.5, "snow": 0, "load": 0, "level": 3, "drivers": ["rain"] },
+    { "name": "rain exactly 1.00 is still severe (no travel is >1.00)", "wind": 5, "gust": 8, "rain": 1.0, "snow": 0, "load": 0, "level": 3, "drivers": ["rain"] },
+    { "name": "rain 1.004 displays 1.00 so severe", "wind": 5, "gust": 8, "rain": 1.004, "snow": 0, "load": 0, "level": 3, "drivers": ["rain"] },
+    { "name": "rain 1.01 no travel", "wind": 5, "gust": 8, "rain": 1.01, "snow": 0, "load": 0, "level": 4, "drivers": ["rain"] },
+    { "name": "negative model noise is clamped to zero", "wind": 5, "gust": 8, "rain": -0.01, "snow": -0.2, "load": 0, "level": 0, "drivers": [] },
+
+    { "name": "snow 0.49 low", "wind": 5, "gust": 8, "rain": 0, "snow": 0.49, "load": 0, "level": 0, "drivers": [] },
+    { "name": "snow 0.5 moderate", "wind": 5, "gust": 8, "rain": 0, "snow": 0.5, "load": 0, "level": 1, "drivers": ["snow"] },
+    { "name": "snow 0.99 moderate", "wind": 5, "gust": 8, "rain": 0, "snow": 0.99, "load": 0, "level": 1, "drivers": ["snow"] },
+    { "name": "snow 1.0 high", "wind": 5, "gust": 8, "rain": 0, "snow": 1.0, "load": 0, "level": 2, "drivers": ["snow"] },
+    { "name": "snow 1.99 high", "wind": 5, "gust": 8, "rain": 0, "snow": 1.99, "load": 0, "level": 2, "drivers": ["snow"] },
+    { "name": "snow 2.0 severe", "wind": 5, "gust": 8, "rain": 0, "snow": 2.0, "load": 0, "level": 3, "drivers": ["snow"] },
+    { "name": "snow exactly 3.0 is still severe", "wind": 5, "gust": 8, "rain": 0, "snow": 3.0, "load": 0, "level": 3, "drivers": ["snow"] },
+    { "name": "snow 3.01 no travel", "wind": 5, "gust": 8, "rain": 0, "snow": 3.01, "load": 0, "level": 4, "drivers": ["snow"] },
+
+    { "name": "worst factor wins: rain beats wind", "wind": 30, "gust": 40, "rain": 0.3, "snow": 0, "load": 0, "level": 2, "drivers": ["rain"] },
+    { "name": "ties list every driver", "wind": 40, "gust": 50, "rain": 0, "snow": 2.5, "load": 45000, "level": 3, "drivers": ["wind", "snow"], "load_escalated": true },
+    { "name": "all three at moderate", "wind": 30, "gust": 40, "rain": 0.12, "snow": 0.6, "load": 0, "level": 1, "drivers": ["wind", "rain", "snow"] },
+
+    { "name": "gust basis uses gusts", "wind": 20, "gust": 40, "rain": 0, "snow": 0, "load": 0, "basis": "gust", "level": 2, "drivers": ["wind"] },
+    { "name": "sustained basis ignores gusts", "wind": 20, "gust": 40, "rain": 0, "snow": 0, "load": 0, "basis": "sustained", "level": 0, "drivers": [] },
+    { "name": "gust basis applies load rules", "wind": 20, "gust": 50, "rain": 0, "snow": 0, "load": 35000, "basis": "gust", "level": 4, "drivers": ["wind"], "load_escalated": true }
+  ]
+}

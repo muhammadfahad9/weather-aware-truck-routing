@@ -1,0 +1,22 @@
+# Render Blueprint: one Docker web service (Django serves the API and the built React app).
+# Deploy: Render dashboard -> New -> Blueprint -> pick this repository.
+services:
+  - type: web
+    name: weather-aware-truck-routing
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "0"
+      - key: WEB_CONCURRENCY
+        value: "2"
+      - key: HTTP_USER_AGENT
+        value: "weather-aware-truck-routing/1.0 (assessment demo)"
+      # Optional: a commercial Open-Meteo key lifts the free-tier rate limits.
+      - key: OPEN_METEO_API_KEY
+        sync: false

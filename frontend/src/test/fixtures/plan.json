@@ -1,0 +1,1727 @@
+{
+  "generated_at": "2027-01-15T08:00:00Z",
+  "inputs": {
+    "origin": { "lat": 32.7767, "lon": -96.797, "label": "Dallas, Texas, USA" },
+    "destination": { "lat": 37.6872, "lon": -97.3301, "label": "Wichita, Kansas, USA" },
+    "departure_time": "2027-01-15T08:15:00Z",
+    "load_weight_lb": 42000,
+    "interval_miles": 50,
+    "hos_breaks": true,
+    "wind_basis": "sustained",
+    "weather_source": "simulated"
+  },
+  "rules": {
+    "levels": [
+      { "level": 0, "key": "low", "label": "Low" },
+      { "level": 1, "key": "moderate", "label": "Moderate" },
+      { "level": 2, "key": "high", "label": "High" },
+      { "level": 3, "key": "severe", "label": "Severe" },
+      { "level": 4, "key": "no_travel", "label": "No Travel" }
+    ],
+    "conditions": {
+      "wind": {
+        "unit": "mph",
+        "precision": 1,
+        "thresholds": [
+          { "level": 1, "value": 25.0, "inclusive": true },
+          { "level": 2, "value": 35.0, "inclusive": true },
+          { "level": 3, "value": 45.0, "inclusive": true },
+          { "level": 4, "value": 55.0, "inclusive": true }
+        ]
+      },
+      "rain": {
+        "unit": "in/hr",
+        "precision": 2,
+        "thresholds": [
+          { "level": 1, "value": 0.1, "inclusive": true },
+          { "level": 2, "value": 0.25, "inclusive": true },
+          { "level": 3, "value": 0.5, "inclusive": true },
+          { "level": 4, "value": 1.0, "inclusive": false }
+        ]
+      },
+      "snow": {
+        "unit": "in/hr",
+        "precision": 2,
+        "thresholds": [
+          { "level": 1, "value": 0.5, "inclusive": true },
+          { "level": 2, "value": 1.0, "inclusive": true },
+          { "level": 3, "value": 2.0, "inclusive": true },
+          { "level": 4, "value": 3.0, "inclusive": false }
+        ]
+      }
+    },
+    "load_rules": [
+      { "wind_min_mph": 45.0, "wind_max_mph": 55.0, "load_over_lb": 30000, "level": 4 },
+      { "wind_min_mph": 35.0, "wind_max_mph": 45.0, "load_over_lb": 40000, "level": 3 }
+    ]
+  },
+  "routing": { "provider": "simulated" },
+  "weather": {
+    "provider": "simulated",
+    "simulated": true,
+    "scenario": {
+      "storms": [
+        {
+          "lat": 35.3888,
+          "lon": -98.1613,
+          "t0": 1800012328,
+          "heading_deg": 70.0,
+          "speed_mph": 22.0,
+          "radius_mi": 35.0,
+          "peak_wind_mph": 58.0,
+          "peak_rain_in_hr": 0.9,
+          "peak_snow_in_hr": 0.0
+        }
+      ]
+    }
+  },
+  "routes": [
+    {
+      "id": "A",
+      "name": "Route A",
+      "via": ["I-SIM3"],
+      "provider": "simulated",
+      "synthesized": false,
+      "rank": 3,
+      "recommended": false,
+      "distance_mi": 366.8,
+      "drive_time_s": 20940,
+      "stop_time_s": 0,
+      "total_time_s": 20940,
+      "departure_time": "2027-01-15T08:15:00Z",
+      "arrival_time": "2027-01-15T14:04:18Z",
+      "risk": {
+        "miles_by_level": {
+          "low": 316.8,
+          "moderate": 0.0,
+          "high": 0.0,
+          "severe": 0.0,
+          "no_travel": 50.0
+        },
+        "avg_risk": 0.55,
+        "max_level": 4,
+        "max_label": "No Travel"
+      },
+      "path": {
+        "coordinates": [
+          [-96.797, 32.7767],
+          [-96.93238, 32.94154],
+          [-97.02217, 33.05143],
+          [-97.08897, 33.13387],
+          [-97.1551, 33.21633],
+          [-97.2204, 33.29884],
+          [-97.28468, 33.38141],
+          [-97.34778, 33.46405],
+          [-97.40953, 33.54677],
+          [-97.46977, 33.6296],
+          [-97.50901, 33.68488],
+          [-97.52833, 33.71254],
+          [-97.56638, 33.7679],
+          [-97.58508, 33.7956],
+          [-97.62182, 33.85106],
+          [-97.65765, 33.90658],
+          [-97.6752, 33.93437],
+          [-97.70957, 33.98999],
+          [-97.74291, 34.0457],
+          [-97.75919, 34.07358],
+          [-97.79094, 34.1294],
+          [-97.82157, 34.1853],
+          [-97.83646, 34.21329],
+          [-97.86536, 34.26933],
+          [-97.89306, 34.32546],
+          [-97.90645, 34.35356],
+          [-97.9323, 34.40983],
+          [-97.95688, 34.4662],
+          [-97.96868, 34.49443],
+          [-97.99131, 34.55095],
+          [-98.0126, 34.60758],
+          [-98.03253, 34.66432],
+          [-98.05109, 34.72116],
+          [-98.05985, 34.74963],
+          [-98.07631, 34.80664],
+          [-98.08401, 34.83519],
+          [-98.09135, 34.86376],
+          [-98.09833, 34.89237],
+          [-98.10496, 34.921],
+          [-98.11122, 34.94966],
+          [-98.11712, 34.97835],
+          [-98.12265, 35.00707],
+          [-98.12783, 35.03582],
+          [-98.13263, 35.0646],
+          [-98.13707, 35.09341],
+          [-98.14114, 35.12224],
+          [-98.14485, 35.15111],
+          [-98.14818, 35.18001],
+          [-98.15115, 35.20893],
+          [-98.15375, 35.23788],
+          [-98.15598, 35.26686],
+          [-98.15784, 35.29588],
+          [-98.15933, 35.32492],
+          [-98.16045, 35.35399],
+          [-98.1612, 35.38309],
+          [-98.16159, 35.41221],
+          [-98.16161, 35.44137],
+          [-98.16127, 35.47056],
+          [-98.16056, 35.49977],
+          [-98.15948, 35.52901],
+          [-98.15804, 35.55828],
+          [-98.15624, 35.58758],
+          [-98.15409, 35.61691],
+          [-98.15157, 35.64626],
+          [-98.14546, 35.70505],
+          [-98.13794, 35.76395],
+          [-98.12903, 35.82296],
+          [-98.11873, 35.88206],
+          [-98.11308, 35.91166],
+          [-98.10076, 35.97092],
+          [-98.08711, 36.03028],
+          [-98.0798, 36.05999],
+          [-98.06422, 36.11949],
+          [-98.04738, 36.17908],
+          [-98.03849, 36.20891],
+          [-98.01982, 36.26863],
+          [-97.99997, 36.32843],
+          [-97.98961, 36.35836],
+          [-97.96805, 36.41828],
+          [-97.9454, 36.47828],
+          [-97.93368, 36.5083],
+          [-97.90946, 36.56839],
+          [-97.88424, 36.62855],
+          [-97.87127, 36.65866],
+          [-97.84463, 36.7189],
+          [-97.83098, 36.74905],
+          [-97.80302, 36.80937],
+          [-97.78873, 36.83955],
+          [-97.75956, 36.89995],
+          [-97.72963, 36.96038],
+          [-97.68343, 37.0511],
+          [-97.63581, 37.14189],
+          [-97.58694, 37.23273],
+          [-97.537, 37.3236],
+          [-97.46904, 37.4448],
+          [-97.39993, 37.56602],
+          [-97.3301, 37.6872]
+        ],
+        "miles": [
+          0.0, 13.837, 23.041, 29.926, 36.788, 43.624, 50.429, 57.2, 63.933, 70.624, 75.06, 77.271,
+          81.676, 83.871, 88.245, 92.597, 94.764, 99.083, 103.38, 105.52, 109.783, 114.024, 116.137,
+          120.346, 124.534, 126.62, 130.778, 134.918, 136.98, 141.093, 145.189, 149.269, 153.336,
+          155.365, 159.413, 161.433, 163.451, 165.467, 167.48, 169.492, 171.503, 173.512, 175.519,
+          177.526, 179.532, 181.538, 183.543, 185.549, 187.554, 189.56, 191.566, 193.574, 195.582,
+          197.592, 199.603, 201.615, 203.63, 205.646, 207.665, 209.687, 211.711, 213.737, 215.767,
+          217.8, 221.877, 225.968, 230.076, 234.2, 236.269, 240.421, 244.593, 246.686, 250.889,
+          255.112, 257.231, 261.487, 265.764, 267.911, 272.221, 276.553, 278.728, 283.092, 287.478,
+          289.678, 294.095, 296.311, 300.757, 302.987, 307.46, 311.951, 318.718, 325.517, 332.346,
+          339.199, 348.367, 357.559, 366.762
+        ],
+        "elapsed_s": [
+          0, 791, 1317, 1710, 2102, 2493, 2882, 3269, 3653, 4036, 4289, 4415, 4667, 4793, 5043,
+          5291, 5415, 5662, 5907, 6030, 6273, 6516, 6636, 6877, 7116, 7235, 7473, 7710, 7827, 8062,
+          8296, 8530, 8762, 8878, 9109, 9225, 9340, 9455, 9570, 9685, 9800, 9915, 10030, 10144,
+          10259, 10374, 10488, 10603, 10717, 10832, 10947, 11061, 11176, 11291, 11406, 11521, 11636,
+          11751, 11867, 11982, 12098, 12214, 12330, 12446, 12679, 12912, 13147, 13383, 13501, 13738,
+          13977, 14096, 14336, 14578, 14699, 14942, 15187, 15309, 15556, 15803, 15927, 16177, 16427,
+          16553, 16805, 16932, 17186, 17314, 17569, 17826, 18212, 18601, 18991, 19383, 19907, 20432,
+          20958
+        ]
+      },
+      "stops": [],
+      "checkpoints": [
+        {
+          "index": 0,
+          "mile": 0,
+          "span": [0, 25.0],
+          "lat": 32.7767,
+          "lon": -96.797,
+          "eta": "2027-01-15T08:15:00Z",
+          "elapsed_s": 0,
+          "conditions": {
+            "wind_mph": 8.6,
+            "gust_mph": 12.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 8.6,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "mile": 50,
+          "span": [25.0, 75.0],
+          "lat": 33.37619,
+          "lon": -97.28064,
+          "eta": "2027-01-15T09:02:37Z",
+          "elapsed_s": 2857,
+          "conditions": {
+            "wind_mph": 9.0,
+            "gust_mph": 13.5,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 9.0,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "mile": 100,
+          "span": [75.0, 125.0],
+          "lat": 34.00186,
+          "lon": -97.71673,
+          "eta": "2027-01-15T09:50:14Z",
+          "elapsed_s": 5714,
+          "conditions": {
+            "wind_mph": 9.6,
+            "gust_mph": 13.5,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 9.6,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 3,
+          "mile": 150,
+          "span": [125.0, 175.0],
+          "lat": 34.67452,
+          "lon": -98.03593,
+          "eta": "2027-01-15T10:37:51Z",
+          "elapsed_s": 8571,
+          "conditions": {
+            "wind_mph": 16.5,
+            "gust_mph": 24.1,
+            "rain_in_hr": 0.05,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 61,
+            "summary": "Slight rain"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 16.5,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.05,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "mile": 200,
+          "span": [175.0, 225.0],
+          "lat": 35.38884,
+          "lon": -98.16128,
+          "eta": "2027-01-15T11:25:29Z",
+          "elapsed_s": 11429,
+          "conditions": {
+            "wind_mph": 55.0,
+            "gust_mph": 86.1,
+            "rain_in_hr": 0.9,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 65,
+            "summary": "Heavy rain"
+          },
+          "risk": {
+            "level": 4,
+            "label": "No Travel",
+            "drivers": ["wind"],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 55.0,
+                "unit": "mph",
+                "level": 4,
+                "base_level": 4,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.9,
+                "unit": "in/hr",
+                "level": 3,
+                "base_level": 3,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 5,
+          "mile": 250,
+          "span": [225.0, 275.0],
+          "lat": 36.10692,
+          "lon": -98.06757,
+          "eta": "2027-01-15T12:13:06Z",
+          "elapsed_s": 14286,
+          "conditions": {
+            "wind_mph": 20.0,
+            "gust_mph": 30.3,
+            "rain_in_hr": 0.08,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 61,
+            "summary": "Slight rain"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 20.0,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.08,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 6,
+          "mile": 300,
+          "span": [275.0, 325.0],
+          "lat": 36.79911,
+          "lon": -97.80781,
+          "eta": "2027-01-15T13:00:43Z",
+          "elapsed_s": 17143,
+          "conditions": {
+            "wind_mph": 11.3,
+            "gust_mph": 16.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.3,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 7,
+          "mile": 350,
+          "span": [325.0, 358.38],
+          "lat": 37.46636,
+          "lon": -97.45682,
+          "eta": "2027-01-15T13:48:20Z",
+          "elapsed_s": 20000,
+          "conditions": {
+            "wind_mph": 11.4,
+            "gust_mph": 16.4,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.4,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "mile": 366.76,
+          "span": [358.38, 366.76],
+          "lat": 37.6872,
+          "lon": -97.3301,
+          "eta": "2027-01-15T14:04:18Z",
+          "elapsed_s": 20958,
+          "conditions": {
+            "wind_mph": 11.4,
+            "gust_mph": 16.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.4,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Route B",
+      "via": ["US-SIM2"],
+      "provider": "simulated",
+      "synthesized": false,
+      "rank": 1,
+      "recommended": true,
+      "distance_mi": 356.2,
+      "drive_time_s": 21000,
+      "stop_time_s": 0,
+      "total_time_s": 21000,
+      "departure_time": "2027-01-15T08:15:00Z",
+      "arrival_time": "2027-01-15T14:05:22Z",
+      "risk": {
+        "miles_by_level": {
+          "low": 356.2,
+          "moderate": 0.0,
+          "high": 0.0,
+          "severe": 0.0,
+          "no_travel": 0.0
+        },
+        "avg_risk": 0.0,
+        "max_level": 0,
+        "max_label": "Low"
+      },
+      "path": {
+        "coordinates": [
+          [-96.797, 32.7767],
+          [-96.72514, 32.95652],
+          [-96.67757, 33.07633],
+          [-96.64231, 33.16613],
+          [-96.60757, 33.25587],
+          [-96.57346, 33.34554],
+          [-96.54014, 33.43514],
+          [-96.50773, 33.52465],
+          [-96.47637, 33.61407],
+          [-96.44618, 33.70339],
+          [-96.41728, 33.7926],
+          [-96.3898, 33.88171],
+          [-96.37232, 33.94104],
+          [-96.34745, 34.02994],
+          [-96.33182, 34.08914],
+          [-96.31698, 34.14827],
+          [-96.30987, 34.17782],
+          [-96.29628, 34.23687],
+          [-96.28355, 34.29585],
+          [-96.27752, 34.32532],
+          [-96.26615, 34.38421],
+          [-96.2557, 34.44303],
+          [-96.25084, 34.47242],
+          [-96.24184, 34.53114],
+          [-96.23383, 34.5898],
+          [-96.2302, 34.6191],
+          [-96.22371, 34.67765],
+          [-96.21827, 34.73614],
+          [-96.21388, 34.79455],
+          [-96.21056, 34.85289],
+          [-96.20931, 34.88204],
+          [-96.20763, 34.94027],
+          [-96.20705, 34.99844],
+          [-96.2076, 35.05653],
+          [-96.20927, 35.11455],
+          [-96.21053, 35.14353],
+          [-96.21391, 35.20144],
+          [-96.21844, 35.25928],
+          [-96.22411, 35.31704],
+          [-96.23093, 35.37473],
+          [-96.2389, 35.43235],
+          [-96.24802, 35.4899],
+          [-96.25302, 35.51864],
+          [-96.26386, 35.57608],
+          [-96.27585, 35.63345],
+          [-96.28898, 35.69074],
+          [-96.30323, 35.74797],
+          [-96.31078, 35.77655],
+          [-96.3267, 35.83367],
+          [-96.34373, 35.89072],
+          [-96.36185, 35.9477],
+          [-96.38105, 36.00462],
+          [-96.39104, 36.03305],
+          [-96.41182, 36.08986],
+          [-96.43363, 36.14661],
+          [-96.44491, 36.17496],
+          [-96.46823, 36.23161],
+          [-96.49253, 36.2882],
+          [-96.50504, 36.31647],
+          [-96.53076, 36.37296],
+          [-96.5574, 36.4294],
+          [-96.57106, 36.4576],
+          [-96.59903, 36.51395],
+          [-96.62785, 36.57024],
+          [-96.64257, 36.59836],
+          [-96.67262, 36.65458],
+          [-96.70343, 36.71073],
+          [-96.75104, 36.79488],
+          [-96.78365, 36.85091],
+          [-96.83378, 36.93488],
+          [-96.88527, 37.01876],
+          [-96.93799, 37.10254],
+          [-96.99181, 37.18624],
+          [-97.0466, 37.26987],
+          [-97.10221, 37.35343],
+          [-97.1774, 37.46476],
+          [-97.25348, 37.57601],
+          [-97.3301, 37.6872]
+        ],
+        "miles": [
+          0.0, 13.106, 21.83, 28.362, 34.879, 41.381, 47.863, 54.323, 60.76, 67.171, 73.555, 79.91,
+          84.131, 90.436, 94.623, 98.796, 100.878, 105.031, 109.17, 111.235, 115.356, 119.463,
+          121.513, 125.602, 129.681, 131.716, 135.778, 139.831, 143.874, 147.91, 149.925, 153.95,
+          157.969, 161.983, 165.992, 167.996, 172.002, 176.006, 180.01, 184.015, 188.021, 192.03,
+          194.036, 198.052, 202.072, 206.099, 210.133, 212.153, 216.199, 220.254, 224.32, 228.396,
+          230.438, 234.532, 238.637, 240.695, 244.819, 248.957, 251.03, 255.188, 259.36, 261.45,
+          265.642, 269.848, 271.956, 276.182, 280.421, 286.805, 291.076, 297.505, 303.96, 310.437,
+          316.936, 323.453, 329.985, 338.715, 347.459, 356.211
+        ],
+        "elapsed_s": [
+          0, 773, 1288, 1674, 2058, 2442, 2825, 3206, 3586, 3964, 4341, 4716, 4965, 5337, 5584,
+          5831, 5953, 6199, 6443, 6565, 6808, 7050, 7171, 7413, 7653, 7773, 8013, 8252, 8491, 8729,
+          8848, 9086, 9323, 9560, 9796, 9915, 10151, 10387, 10624, 10860, 11096, 11333, 11451,
+          11688, 11926, 12163, 12401, 12520, 12759, 12999, 13239, 13479, 13600, 13841, 14084, 14205,
+          14448, 14693, 14815, 15060, 15306, 15430, 15677, 15925, 16050, 16299, 16549, 16926, 17178,
+          17558, 17939, 18321, 18704, 19089, 19475, 19990, 20506, 21022
+        ]
+      },
+      "stops": [],
+      "checkpoints": [
+        {
+          "index": 0,
+          "mile": 0,
+          "span": [0, 25.0],
+          "lat": 32.7767,
+          "lon": -96.797,
+          "eta": "2027-01-15T08:15:00Z",
+          "elapsed_s": 0,
+          "conditions": {
+            "wind_mph": 8.6,
+            "gust_mph": 12.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 8.6,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "mile": 50,
+          "span": [25.0, 75.0],
+          "lat": 33.46472,
+          "lon": -96.52933,
+          "eta": "2027-01-15T09:04:11Z",
+          "elapsed_s": 2951,
+          "conditions": {
+            "wind_mph": 9.0,
+            "gust_mph": 13.5,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 9.0,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "mile": 100,
+          "span": [75.0, 125.0],
+          "lat": 34.16536,
+          "lon": -96.31287,
+          "eta": "2027-01-15T09:53:22Z",
+          "elapsed_s": 5902,
+          "conditions": {
+            "wind_mph": 9.5,
+            "gust_mph": 13.5,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 9.5,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 3,
+          "mile": 150,
+          "span": [125.0, 175.0],
+          "lat": 34.88312,
+          "lon": -96.20927,
+          "eta": "2027-01-15T10:42:32Z",
+          "elapsed_s": 8852,
+          "conditions": {
+            "wind_mph": 10.1,
+            "gust_mph": 14.4,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 10.1,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "mile": 200,
+          "span": [175.0, 225.0],
+          "lat": 35.6039,
+          "lon": -96.26954,
+          "eta": "2027-01-15T11:31:43Z",
+          "elapsed_s": 11803,
+          "conditions": {
+            "wind_mph": 10.6,
+            "gust_mph": 15.3,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 10.6,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 5,
+          "mile": 250,
+          "span": [225.0, 275.0],
+          "lat": 36.30242,
+          "lon": -96.49882,
+          "eta": "2027-01-15T12:20:54Z",
+          "elapsed_s": 14754,
+          "conditions": {
+            "wind_mph": 11.0,
+            "gust_mph": 16.0,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.0,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 6,
+          "mile": 300,
+          "span": [275.0, 325.0],
+          "lat": 36.96735,
+          "lon": -96.85356,
+          "eta": "2027-01-15T13:10:05Z",
+          "elapsed_s": 17705,
+          "conditions": {
+            "wind_mph": 11.3,
+            "gust_mph": 16.4,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.3,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 7,
+          "mile": 350,
+          "span": [325.0, 353.11],
+          "lat": 37.6083,
+          "lon": -97.27569,
+          "eta": "2027-01-15T13:59:16Z",
+          "elapsed_s": 20656,
+          "conditions": {
+            "wind_mph": 11.4,
+            "gust_mph": 16.4,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.4,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "mile": 356.21,
+          "span": [353.11, 356.21],
+          "lat": 37.6872,
+          "lon": -97.3301,
+          "eta": "2027-01-15T14:05:22Z",
+          "elapsed_s": 21022,
+          "conditions": {
+            "wind_mph": 11.4,
+            "gust_mph": 16.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.4,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Route C",
+      "via": ["I-SIM1"],
+      "provider": "simulated",
+      "synthesized": false,
+      "rank": 2,
+      "recommended": false,
+      "distance_mi": 340.6,
+      "drive_time_s": 21540,
+      "stop_time_s": 0,
+      "total_time_s": 21540,
+      "departure_time": "2027-01-15T08:15:00Z",
+      "arrival_time": "2027-01-15T14:13:32Z",
+      "risk": {
+        "miles_by_level": {
+          "low": 340.6,
+          "moderate": 0.0,
+          "high": 0.0,
+          "severe": 0.0,
+          "no_travel": 0.0
+        },
+        "avg_risk": 0.0,
+        "max_level": 0,
+        "max_label": "Low"
+      },
+      "path": {
+        "coordinates": [
+          [-96.797, 32.7767],
+          [-97.3301, 37.6872]
+        ],
+        "miles": [0.0, 340.614],
+        "elapsed_s": [0, 21512]
+      },
+      "stops": [],
+      "checkpoints": [
+        {
+          "index": 0,
+          "mile": 0,
+          "span": [0, 25.0],
+          "lat": 32.7767,
+          "lon": -96.797,
+          "eta": "2027-01-15T08:15:00Z",
+          "elapsed_s": 0,
+          "conditions": {
+            "wind_mph": 8.6,
+            "gust_mph": 12.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 8.6,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "mile": 50,
+          "span": [25.0, 75.0],
+          "lat": 33.49739,
+          "lon": -96.87524,
+          "eta": "2027-01-15T09:07:38Z",
+          "elapsed_s": 3158,
+          "conditions": {
+            "wind_mph": 9.1,
+            "gust_mph": 13.5,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 9.1,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "mile": 100,
+          "span": [75.0, 125.0],
+          "lat": 34.21812,
+          "lon": -96.95349,
+          "eta": "2027-01-15T10:00:16Z",
+          "elapsed_s": 6316,
+          "conditions": {
+            "wind_mph": 9.6,
+            "gust_mph": 14.4,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 9.6,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 3,
+          "mile": 150,
+          "span": [125.0, 175.0],
+          "lat": 34.93891,
+          "lon": -97.03174,
+          "eta": "2027-01-15T10:52:54Z",
+          "elapsed_s": 9474,
+          "conditions": {
+            "wind_mph": 10.5,
+            "gust_mph": 14.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 10.5,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "mile": 200,
+          "span": [175.0, 225.0],
+          "lat": 35.65974,
+          "lon": -97.10999,
+          "eta": "2027-01-15T11:45:32Z",
+          "elapsed_s": 12632,
+          "conditions": {
+            "wind_mph": 15.7,
+            "gust_mph": 18.7,
+            "rain_in_hr": 0.01,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 15.7,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.01,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 5,
+          "mile": 250,
+          "span": [225.0, 275.0],
+          "lat": 36.38062,
+          "lon": -97.18825,
+          "eta": "2027-01-15T12:38:09Z",
+          "elapsed_s": 15789,
+          "conditions": {
+            "wind_mph": 12.6,
+            "gust_mph": 17.4,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 12.6,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 6,
+          "mile": 300,
+          "span": [275.0, 320.31],
+          "lat": 37.10156,
+          "lon": -97.26652,
+          "eta": "2027-01-15T13:30:47Z",
+          "elapsed_s": 18947,
+          "conditions": {
+            "wind_mph": 11.3,
+            "gust_mph": 16.4,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.3,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        },
+        {
+          "index": 7,
+          "mile": 340.61,
+          "span": [320.31, 340.61],
+          "lat": 37.6872,
+          "lon": -97.3301,
+          "eta": "2027-01-15T14:13:32Z",
+          "elapsed_s": 21512,
+          "conditions": {
+            "wind_mph": 11.4,
+            "gust_mph": 16.6,
+            "rain_in_hr": 0.0,
+            "snow_in_hr": 0.0,
+            "temperature_f": 46,
+            "weather_code": 1,
+            "summary": "Mainly clear"
+          },
+          "risk": {
+            "level": 0,
+            "label": "Low",
+            "drivers": [],
+            "factors": [
+              {
+                "factor": "wind",
+                "value": 11.4,
+                "unit": "mph",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "rain",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              },
+              {
+                "factor": "snow",
+                "value": 0.0,
+                "unit": "in/hr",
+                "level": 0,
+                "base_level": 0,
+                "load_escalated": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "recommendation": {
+    "route_id": "B",
+    "ranking": ["B", "C", "A"],
+    "reasons": [
+      "Equivalent weather risk to Route C, and 9m faster.",
+      "50 fewer No Travel miles than Route A (0 vs 50 mi)."
+    ],
+    "deciding_criterion": "travel_time_s",
+    "stages": [
+      {
+        "criterion": "no_travel_mi",
+        "label": "No Travel miles",
+        "values": { "A": 50.0, "B": 0.0, "C": 0.0 },
+        "best": 0.0,
+        "kept": ["B", "C"],
+        "eliminated": ["A"]
+      },
+      {
+        "criterion": "severe_mi",
+        "label": "Severe miles",
+        "values": { "B": 0.0, "C": 0.0 },
+        "best": 0.0,
+        "kept": ["B", "C"],
+        "eliminated": []
+      },
+      {
+        "criterion": "high_mi",
+        "label": "High miles",
+        "values": { "B": 0.0, "C": 0.0 },
+        "best": 0.0,
+        "kept": ["B", "C"],
+        "eliminated": []
+      },
+      {
+        "criterion": "avg_risk",
+        "label": "Average risk",
+        "values": { "B": 0.0, "C": 0.0 },
+        "best": 0.0,
+        "kept": ["B", "C"],
+        "eliminated": []
+      },
+      {
+        "criterion": "travel_time_s",
+        "label": "Travel time",
+        "values": { "B": 21000.0, "C": 21540.0 },
+        "best": 21000.0,
+        "kept": ["B"],
+        "eliminated": ["C"]
+      }
+    ]
+  },
+  "notices": []
+}

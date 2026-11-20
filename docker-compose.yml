@@ -1,0 +1,15 @@
+# Production-like local run:  docker compose up --build  ->  http://localhost:8080
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8000"
+    environment:
+      DJANGO_SECRET_KEY: local-compose-not-secret
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1
+      NUM_PROXIES: "0"
+      # Fully offline demo (no third-party APIs): uncomment the four lines below.
+      # ROUTING_PROVIDER: simulated
+      # ROUTING_FALLBACK: ""
+      # WEATHER_PROVIDER: simulated
+      # GEOCODER: gazetteer
